@@ -1,0 +1,5 @@
+email_attachment_filename: "logs/LO_TestResults.html"
+
+email_to_recipients:
+  devs:
+    - "someone@example.com"

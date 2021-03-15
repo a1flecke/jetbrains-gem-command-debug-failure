@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    container_name: jetbrains-gem-command-debug-failure-dev
+    image: jetbrains-gem-command-debug-failure:0.0.2
+    tty: true
+    stdin_open: true
+    user: root
+    working_dir: /jetbrains-gem-command-debug-failure
+    environment:
+      - MAILTRAP_API_KEY=fake
+      - TEST_VOUCHER_API_KEY=fake
+      - QA_VOUCHER_API_KEY=fake
+    volumes:
+      - .:/jetbrains-gem-command-debug-failure:delegated
+      - bundle:/usr/local/bundle
+      - "${HOME}/.gitconfig:/root/.gitconfig"
+
+volumes:
+  bundle:
